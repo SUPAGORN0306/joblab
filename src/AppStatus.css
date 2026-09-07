@@ -8,6 +8,8 @@
   position: relative;
 }
 
+
+
 .status-header {
   margin-bottom: 30px;
 }
@@ -28,17 +30,6 @@
   gap: 20px;
   margin-bottom: 34px;
 }
-
-/* .stat-card {
-  background: rgba(220, 220, 220, 0.2);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 16px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-} */
 
 .stat-card {
   position: relative;
@@ -120,7 +111,6 @@
   color: #c084fc; 
 }
 
-
 .kanban-board {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -167,7 +157,6 @@
   color: #8c9bae;
 }
 
-/* จุดวงกลมแสดงสถานะหน้าการ์ด */
 .dot {
   width: 8px;
   height: 8px;
@@ -215,27 +204,22 @@
   margin: 0;
 }
 
-
-
-/* 1. คอลัมน์ Applied (โทนสีฟ้า - เริ่มต้น/กำลังสมัคร) */
 .kanban-column.applied .job-card {
   background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(15, 23, 42, 0.6));
   border-left: 4px solid #38bdf8; /* เน้นขอบซ้ายเป็นสีฟ้า */
 }
 
-/* 2. คอลัมน์ In Review (โทนสีเหลือง/ส้ม - กำลังพิจารณา) */
+
 .kanban-column.in-review .job-card {
   background: linear-gradient(135deg, rgba(250, 21, 219, 0.15), rgba(15, 23, 42, 0.6));
   border-left: 4px solid  #f284eb; /* เน้นขอบซ้ายเป็นสีเหลือง */
 }
 
-/* 3. คอลัมน์ Interview (โทนสีเขียว - นัดสัมภาษณ์แล้ว) */
 .kanban-column.interview .job-card {
   background: linear-gradient(135deg, rgba(52, 211, 153, 0.15), rgba(15, 23, 42, 0.6));
   border-left: 4px solid #34d399; /* เน้นขอบซ้ายเป็นสีเขียว */
 }
 
-/* 4. คอลัมน์ Closed (โทนสีเทา - ปิดรับสมัคร / ไม่ผ่าน) */
 .kanban-column.closed .job-card {
   background: linear-gradient(135deg, rgba(148, 163, 184, 0.1), rgba(15, 23, 42, 0.6));
   border-left: 4px solid #94a3b8; /* เน้นขอบซ้ายเป็นสีเทา */

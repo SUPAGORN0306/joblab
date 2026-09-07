@@ -35,26 +35,6 @@
   margin: 0;
 }
 
- /*.edit-profile-btn {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2); 
-  background:  #F3D86B;
-  color: #1C274C;
-  padding: 15px 30px;
-  border-radius: 12px;
-  font-size: 0.9rem;
-  font-weight: 700;
-  cursor: pointer;
-  backdrop-filter: blur(12px);
-  transition: all 0.2s ease;
-}
-*/
-
-/* .edit-profile-btn:hover {
-  background: rgba(255, 255, 255, 0.95);
-  border-color: rgba(255, 255, 255, 0.7);
-} */
-
 .edit-profile-btn {
    background: linear-gradient(
     to bottom,
@@ -77,7 +57,6 @@
   position: relative;
   overflow: hidden;
 
-  /* color: #1C274C; */
   padding: 12px 30px;
   border-radius: 12px;
   font-size: 0.9rem;
@@ -109,8 +88,6 @@
   border-color: rgba(255, 255, 255, 0.7);
 } 
 
-
-/* โครงสร้าง Grid หลัก (แบ่งซ้าย-ขวา) */
 .profile-grid {
   display: grid;
   grid-template-columns: 350px 1fr;
@@ -118,7 +95,6 @@
   align-items: start;
 }
 
-/* การ์ดฝั่งซ้าย (Avatar, ชื่อ, วงกลมสถิติโปรไฟล์, Skills) */
 .profile-card-left {
   background: rgba(220, 220, 220, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.8);
@@ -148,7 +124,7 @@
 .profile-info h2 {
   font-size: 1.6rem;
   font-weight: 700;
-  color: color: #ffffff;
+  color: #ffffff;
   margin: 0 0 4px 0;
 }
 
@@ -158,7 +134,6 @@
   margin: 0;
 }
 
-/* ส่วนแสดงวงกลมเปอร์เซ็นต์ Profile Strength */
 .profile-strength-container {
   display: flex;
   flex-direction: column;
@@ -200,7 +175,6 @@
   color: #95a0b0;
 }
 
-/* ป้าย Skills ด้านล่างการ์ดซ้าย */
 .skills-container {
   display: flex;
   flex-wrap: wrap;
@@ -211,7 +185,6 @@
 
 .skill-tag {
   background:rgb(255, 255, 255);
-  /* border: 0.9px solid rgba(37, 125, 145, 0.6); */
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 0.85rem;
@@ -219,7 +192,6 @@
   color: #292e30;
 }
 
-/* โครงสร้างฝั่งขวา (Contact Details & Experience) */
 .profile-right-column {
   display: flex;
   flex-direction: column;
@@ -244,7 +216,6 @@
   margin: 0 0 4px 0;
 }
 
-/* Grid ช่องข้อมูลติดต่อ (Contact Details Inputs) */
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -271,7 +242,6 @@
   color: #1c4551;
 }
 
-/* รายการประสบการณ์ (Experience Items) */
 .experience-list {
   display: flex;
   flex-direction: column;
@@ -287,7 +257,7 @@
 .dot.experience {
   width: 8px;
   height: 8px;
-  background-color: #1fc18b; /* สีเขียว */
+  background-color: #1fc18b; 
   border-radius: 50%;
   margin-top: 6px;
 }

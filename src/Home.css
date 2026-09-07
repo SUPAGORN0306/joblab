@@ -107,14 +107,15 @@ html, body {
   align-items: center;
   width: 100%;
   min-height: 100vh;
-  padding: 30px 20px 60px 150px;
+  
+  padding: 30px 20px 0px 150px;
   overflow-x: hidden; 
   position: relative;
 }
 
 .logo {
-  margin: -5px -150px -10px 0;
-  margin-bottom: -50px;
+  margin: -3px -15px -10px 0;
+  margin-bottom: 0px;
   width: 350px; 
   height: 200px;
   display:flex;
@@ -420,7 +421,7 @@ html, body {
 }
 
 
-@media (max-width: 1080px) {
+@media (max-width: 1320px) {
  
   .tabbar {
     position: fixed;
@@ -491,17 +492,19 @@ html, body {
  
 @media (max-width: 1080px) {
   .container {
-    align-items: center !important; /* เปลี่ยนจาก center เป็น flex-start เพื่อดันทุกอย่างไปซ้าย */
-    padding: 80px 40px 0px 40px !important;    /* เผื่อระยะขอบซ้ายไม่ให้ชิดขอบจอจนเกินไป */
+    align-items: center !important; 
+    margin: 0 auto !important;
+    padding: 0px 40px 0px 40px !important; 
+    padding-top: 130px !important;
   }
  
   .logo {
-    margin: -65px 0px 18px 0 !important;   /* เซ็ต margin ซ้ายเป็น 0 เพื่อให้ชิดซ้าย */
+    margin: 0 !important;   
     width: 233px !important; 
     height: 133px !important;
     display: flex !important;
     overflow: hidden !important;
-    justify-content: flex-start !important; /* จัดให้รูปชิดซ้ายในกรอบ */
+    justify-content: center !important; 
     z-index: 1001 !important;
     pointer-events: none !important;
   }

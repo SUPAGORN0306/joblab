@@ -1,5 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 import './index.css';
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 export default function App() {
   return (
@@ -24,6 +25,8 @@ export default function App() {
       <div className="main-content-area">
         <Outlet /> 
       </div>
+      
+      <SpeedInsights />
     </div>
   );
 }
