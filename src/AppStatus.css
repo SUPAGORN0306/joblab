@@ -8,8 +8,6 @@
   position: relative;
 }
 
-
-
 .status-header {
   margin-bottom: 30px;
 }
@@ -85,28 +83,23 @@
   font-weight: 700;
 }
 
-/* ค่าพื้นฐานของตัวเลขสถิติ */
 .stat-value {
   font-size: 1.8rem;
   font-weight: 700;
 }
 
-/* 1. Total applications: สีฟ้าสว่าง (หรือสีเหลืองทองเดิมก็ได้ครับ) */
 .stat-value.total-app {
   color: #38bdf8; 
 }
 
-/* 2. In review: สีชมพู */
 .stat-value.in-review-val {
   color: #f472b6; 
 }
 
-/* 3. Interviews: สีเขียว */
 .stat-value.interview-val {
   color: #34d399; 
 }
 
-/* 4. Response rate: สีม่วง หรือสีส้ม (เลือกสีที่ไม่ซ้ำด้านบน) */
 .stat-value.response-val {
   color: #c084fc; 
 }
@@ -206,22 +199,22 @@
 
 .kanban-column.applied .job-card {
   background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(15, 23, 42, 0.6));
-  border-left: 4px solid #38bdf8; /* เน้นขอบซ้ายเป็นสีฟ้า */
+  border-left: 4px solid #38bdf8; 
 }
 
 
 .kanban-column.in-review .job-card {
   background: linear-gradient(135deg, rgba(250, 21, 219, 0.15), rgba(15, 23, 42, 0.6));
-  border-left: 4px solid  #f284eb; /* เน้นขอบซ้ายเป็นสีเหลือง */
+  border-left: 4px solid  #f284eb; 
 }
 
 .kanban-column.interview .job-card {
   background: linear-gradient(135deg, rgba(52, 211, 153, 0.15), rgba(15, 23, 42, 0.6));
-  border-left: 4px solid #34d399; /* เน้นขอบซ้ายเป็นสีเขียว */
+  border-left: 4px solid #34d399; 
 }
 
 .kanban-column.closed .job-card {
   background: linear-gradient(135deg, rgba(148, 163, 184, 0.1), rgba(15, 23, 42, 0.6));
-  border-left: 4px solid #94a3b8; /* เน้นขอบซ้ายเป็นสีเทา */
-  opacity: 0.85; /* ลดความเด่นลงนิดหน่อย */
+  border-left: 4px solid #94a3b8; 
+  opacity: 0.85; 
 }

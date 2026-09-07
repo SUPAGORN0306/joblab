@@ -1,7 +1,7 @@
 .status-container {
   display: flex;
   flex-direction: column; 
-  max-width: 1200px; */
+  max-width: 1200px;
   width: 100%;
   min-height: 100vh;  
   box-sizing: border-box;  
@@ -59,7 +59,6 @@
   gap: 20px;
 }
 
-/* --- สไตล์กล่องการ์ด (Glassmorphism) --- */
 .Recommended-card {
   background: rgba(220, 220, 220, 0.15);
   backdrop-filter: blur(16px);
@@ -94,7 +93,6 @@
   gap: 12px;
 }
 
-/* โลโก้ย่อหน้าบริษัท */
 .Recommended-logo {
   width: 40px;
   height: 40px;
@@ -109,7 +107,6 @@
   flex-shrink: 0;
 }
 
-/* สีพื้นหลังโลโก้แต่ละบริษัท */
 .green-logo { background: linear-gradient(135deg, #2ecc71, #27ae60); }
 .indigo-logo { background: linear-gradient(135deg, #3f51b5, #303f9f); }
 .orange-logo { background: linear-gradient(135deg, #e67e22, #d35400); }
@@ -129,7 +126,7 @@
   color: #94a3b8;
 }
 
-/* ปุ่มหัวใจ Favorite */
+/* ปุ่มหัวใจ */
 .Recommended-favorite-btn {
   font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.6);

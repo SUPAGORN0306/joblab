@@ -37,7 +37,6 @@
   cursor: pointer;
 }
  
-/* --- สไตล์กล่องการ์ด --- */
 .Recommended-card {
   background: rgba(220, 220, 220, 0.15);
   backdrop-filter: blur(16px);
@@ -152,13 +151,6 @@
   color: #cacdd2;
   margin-top: 2px;
 }
- 
-/* --- Match badge: สีขึ้นอยู่กับเปอร์เซ็นต์ (ดูฟังก์ชัน getMatchBadgeClass ใน Home.jsx) ---
-   >= 80%  เขียว (green-badge)
-   >= 70%  ฟ้า   (blue-badge)
-   >= 60%  เหลือง (yellow-badge)
-   < 60%   แดง   (red-badge)
-*/
 
 .Recommended-match-badge {
   padding: 6px 12px;
