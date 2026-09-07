@@ -1,0 +1,317 @@
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 30px 20px 60px 20px;
+  overflow-x: hidden;
+  position: relative;
+  background-color: #0b0f19; 
+  font-family: ui-sans-serif, system-ui, sans-serif;
+
+  background-image: url('/mnt/d/JobMarket/frontend/public/bg-3night.png'); 
+  background-size: cover;        
+  background-position: center;     
+  background-repeat: no-repeat;   
+  background-attachment: fixed;
+}
+
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(11, 15, 25, 0.2); 
+  z-index: 1; 
+  pointer-events: none;
+}
+
+.login-header,
+.login-card {
+  position: relative;
+  z-index: 2; 
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.login-header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+}
+
+.login-header h1 span {
+  color: #f0d154; 
+}
+
+.login-header p {
+  font-size: 1rem;
+  color: #8c9bae;
+  margin: 0;
+}
+
+/* --- การ์ดฟอร์มหลัก (ใช้สไตล์กล่อง Glassmorphism แบบ .search-filter-section) --- */
+.login-card {
+  background: linear-gradient(
+    to bottom,
+    rgba(217, 235, 249, 0.4) 0%,
+    rgba(160, 200, 230, 0.2) 100%
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 0 rgba(100, 140, 180, 0.4),
+    0 10px 25px rgba(0, 30, 60, 0.3),
+    0 4px 10px rgba(0, 0, 0, 0.15);
+
+  background-clip: padding-box;
+  position: relative;
+  overflow: hidden;
+
+  width: 100%;
+  max-width: 520px;
+  padding: 40px 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  box-sizing: border-box;
+}
+
+/* แสงสะท้อนขอบบนกระจก (เลียนแบบ .search-filter-section::before) */
+.login-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 45%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  pointer-events: none;
+}
+
+/* --- ปุ่มสลับ Tab (Log in / Sign up) --- */
+.login-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 6px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tab-btn {
+  padding: 12px;
+  border-radius: 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  color: #d3dae4;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+  color: #ffffff;
+}
+
+.active-login {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.active-signup {
+  background-color: #f0d154; /* สีเหลืองนีออนเด่นๆ */
+  color: #1C274C;
+  box-shadow: 0 4px 15px rgba(240, 209, 84, 0.4);
+  font-weight: 700;
+}
+
+/* --- ตัวเลือกประเภทผู้ใช้ (Job seeker / Employer) --- */
+.user-type-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.type-card {
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 16px;
+  transition: all 0.2s ease;
+}
+
+.type-card:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.type-card.selected {
+  border-color: #f0d154;
+  background-color: rgba(240, 209, 84, 0.12);
+  box-shadow: 0 0 15px rgba(240, 209, 84, 0.2);
+}
+
+.type-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #8c9bae;
+  display: inline-block;
+}
+
+.dot-active {
+  background-color: #f0d154;
+  box-shadow: 0 0 8px #f0d154;
+}
+
+.type-desc {
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  padding-left: 18px;
+  margin: 0;
+}
+
+/* --- ฟอร์ม Input (เลียนแบบ .search-input) --- */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.85rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 16px 20px;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #0d1b3e;
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.input-group input::placeholder {
+  color: #616d7d;
+}
+
+.input-group input:focus {
+  color: #ffffff;
+  border-color: #f0d154;
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 15px rgba(240, 209, 84, 0.2);
+}
+
+/* --- ปุ่ม Submit (เลียนแบบ .search-btn) --- */
+.submit-container {
+  margin-top: 10px;
+}
+
+.submit-btn {
+  width: 100%;
+  background: #f0d154;
+  color: #1C274C;
+  padding: 16px 30px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn:hover {
+  background: #f3d86b;
+  opacity: 0.95;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(240, 209, 84, 0.4);
+}
+
+/* --- เส้นคั่นกลาง (Divider) --- */
+.divider {
+  position: relative;
+  display: flex;
+  padding: 10px 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.divider::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.divider span {
+  position: relative;
+  background-color: rgba(217, 235, 249, 0.8);
+  padding: 0 12px;
+  color: #475569;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+/* --- ปุ่ม Continue as guest --- */
+.guest-container {
+  text-align: center;
+}
+
+.guest-btn {
+  background: transparent;
+  border: none;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.2s ease;
+}
+
+.guest-btn:hover {
+  color: #f0d154;
+}

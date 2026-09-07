@@ -1,0 +1,258 @@
+.job-detail-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 30px 20px 60px 30px;
+  padding-top: 110px;
+  overflow-x: hidden;
+  position: relative;
+  /* box-sizing: border-box; */
+}
+
+@media (max-width: 1080px) {
+  .profile-container {
+    padding: 30px 50px 0px 50px !important; 
+    padding-top: 110px !important;  
+  }
+}
+
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #c3cad6;
+  text-decoration: none;
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+  transition: color 0.2s;
+}
+
+.back-link:hover {
+  color: #ffffff;
+}
+
+.back-arrow {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.job-not-found {
+  color: #d3dae4;
+  font-size: 1.1rem;
+}
+
+.job-detail-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* --- การ์ดหลัก (ฝั่งซ้าย) --- */
+.job-main-card {
+  background: linear-gradient(
+    to bottom,
+    rgba(217, 235, 249, 0.12) 0%,
+    rgba(160, 200, 230, 0.06) 100%
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 28px;
+  padding: 32px;
+  box-sizing: border-box;
+}
+
+.job-main-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.job-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+}
+
+.apply-btn {
+  background: #f0d154;
+  color: #1c274c;
+  border: none;
+  padding: 13px 26px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.apply-btn:hover {
+  opacity: 0.85;
+}
+
+.job-title {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.job-meta {
+  color: #9aa7b8;
+  font-size: 1rem;
+  margin: 0 0 18px;
+}
+
+.job-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.job-tags span {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #dbe2ea;
+  font-weight: 500;
+}
+
+.job-section {
+  margin-bottom: 26px;
+}
+
+.job-section:last-child {
+  margin-bottom: 0;
+}
+
+.job-section h3 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+
+.job-section p {
+  color: #c3cad6;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.job-section ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #c3cad6;
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+.job-section li {
+  padding-left: 4px;
+}
+
+/* --- Sidebar (ฝั่งขวา) --- */
+.job-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.job-side-card {
+  background: linear-gradient(
+    to bottom,
+    rgba(217, 235, 249, 0.12) 0%,
+    rgba(160, 200, 230, 0.06) 100%
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.job-side-card h4 {
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 18px;
+}
+
+.match-row {
+  margin-bottom: 16px;
+}
+
+.match-row:last-child {
+  margin-bottom: 0;
+}
+
+.match-row-header {
+  display: flex;
+  justify-content: space-between;
+  color: #dbe2ea;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.match-bar-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.match-bar-fill {
+  height: 100%;
+  background: #f0d154;
+  border-radius: 9999px;
+}
+
+.quick-fact-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.quick-fact-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.quick-fact-label {
+  color: #8c9bae;
+  font-size: 0.9rem;
+}
+
+.quick-fact-value {
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* --- Responsive: จอแคบ ให้ sidebar ตกลงมาด้านล่าง --- */
+@media (max-width: 1000px) {
+  .job-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}

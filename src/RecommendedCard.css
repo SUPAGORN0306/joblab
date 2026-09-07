@@ -1,0 +1,197 @@
+.recommend-list {
+  margin-top: 30px;
+}
+ 
+.recommend-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 0 4px;
+}
+ 
+.recommend-list-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+ 
+.recommend-list-header span {
+  font-size: 0.9rem;
+  color: #8c9bae;
+}
+ 
+/* --- จัดเลย์เอาต์การ์ดแบบ Grid 3 คอลัมน์ --- */
+.Recommended-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* การ์ดในหน้า Home ถูกห่อด้วย <Link> เพื่อกดแล้วไปหน้ารายละเอียดงาน — ล้าง style ลิงก์ default ทิ้ง */
+.Recommended-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
+}
+ 
+/* --- สไตล์กล่องการ์ด --- */
+.Recommended-card {
+  background: rgba(220, 220, 220, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+ 
+.Recommended-card:hover {
+  background: rgba(220, 220, 220, 0.22);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+ 
+.Recommended-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+ 
+.Recommended-company-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+ 
+.Recommended-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+ 
+.green-logo { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+.indigo-logo { background: linear-gradient(135deg, #3f51b5, #303f9f); }
+.orange-logo { background: linear-gradient(135deg, #e67e22, #d35400); }
+.purple-logo { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+.bright-green-logo { background: linear-gradient(135deg, #1abc9c, #16a085); }
+.coral-logo { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+ 
+.Recommended-company-info h4 {
+  margin: 0 0 2px 0;
+  font-size: 1.1rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+ 
+.Recommended-company-info span {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+ 
+.Recommended-favorite-btn {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+ 
+.Recommended-favorite-btn:hover {
+  color: #ef4444;
+}
+ 
+.Recommended-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+ 
+.Recommended-tags span {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  color: #dbe2ea;
+  font-weight: 500;
+}
+ 
+.Recommended-card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 12px;
+  margin-top: 4px;
+}
+ 
+.Recommended-salary {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fbbf24;
+}
+ 
+.Recommended-applicants {
+  font-size: 0.8rem;
+  color: #cacdd2;
+  margin-top: 2px;
+}
+ 
+/* --- Match badge: สีขึ้นอยู่กับเปอร์เซ็นต์ (ดูฟังก์ชัน getMatchBadgeClass ใน Home.jsx) ---
+   >= 80%  เขียว (green-badge)
+   >= 70%  ฟ้า   (blue-badge)
+   >= 60%  เหลือง (yellow-badge)
+   < 60%   แดง   (red-badge)
+*/
+
+.Recommended-match-badge {
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+ 
+.green-badge {
+  background-color: rgba(39, 174, 96, 0.15);
+  color: #2ecc71;
+  border: 1px solid rgba(39, 174, 96, 0.3);
+}
+ 
+.blue-badge {
+  background-color: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+ 
+.yellow-badge {
+  background-color: rgba(251, 191, 36, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+ 
+.red-badge {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.Recommended-favorite-btn.is-favorited {
+  color: #ef4444;
+}

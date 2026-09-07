@@ -1,0 +1,33 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+/* body {
+  background-image: url('/mnt/d/JobMarket/frontend/public/image.png');
+  background-size: cover;         
+  background-position: center;     
+  background-repeat: no-repeat;   
+  background-attachment: fixed;  
+} */
+
+
+body {
+  margin: 0;
+  /* เอา background ออกจาก body แล้วมาใส่เป็น Fixed Layer ด้านล่างแทน */
+}
+
+/* สร้าง Class สำหรับทำ Background นิ่งๆ ไม่ให้ขยับหรือกระพริบตอนเปลี่ยนหน้า */
+.page-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* แก้ Path รูปจาก /mnt/d/... ให้เป็น / ชื่อไฟล์รูปใน public เช่น /image.png */
+  background-image: url('/mnt/d/JobMarket/frontend/public/image.png'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1; /* ดันไปไว้ Layer ล่างสุด เพื่อไม่ให้บังปุ่มหรือข้อความ */
+}
