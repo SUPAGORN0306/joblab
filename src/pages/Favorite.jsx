@@ -1,61 +1,97 @@
 import '../Favorite.css';
 import '../RecommendedCard.css';
+import { useNavigate } from 'react-router-dom';
 import { useFavorites } from '../context/FavoritesContext.jsx';
 import { getMatchBadgeClass } from '../utils/matchBadge.js';
 
+const getJobLogoClass = (title) => {
+  switch (title) {
+    case "AI Product Manager": return "logo-ai-product-manager";
+    case "AI Researcher": return "logo-ai-researcher";
+    case "Computer Vision Engineer": return "logo-computer-vision";
+    case "Data Analyst": return "logo-data-analyst";
+    case "Data Scientist": return "logo-data-scientist";
+    case "ML Engineer": return "logo-ml-engineer";
+    case "NLP Engineer": return "logo-nlp-engineer";
+    case "Quant Researcher": return "logo-quant-researcher";
+    default: return "bg-blue-500";
+  }
+};
+
 export default function Favorite() {
-  // ดึงรายการ favorite จาก context กลาง (ชุดเดียวกับที่กดหัวใจไว้จากหน้า Home)
+  const navigate = useNavigate();
   const { favorites, toggleFavorite } = useFavorites();
 
   return (
-    <div className='status-container'>
+    <div className="status-container">
       <div className="recommend-list">
-
         <div className="recommend-list-header">
           <div>
             <h3>Your favorites</h3>
-            <span style={{ fontSize: '0.9rem', color: '#8c9bae' }}>Sorted by most recently saved</span>
+            <span style={{ fontSize: '0.85rem', color: '#8c9bae' }}>
+              Sorted by most recently saved
+            </span>
           </div>
           <span>{favorites.length} saved jobs</span>
         </div>
 
         {favorites.length === 0 ? (
-          <p style={{ color: '#8c9bae' }}>No favorites yet — heart a job on the Home page to save it here.</p>
+          <p style={{ fontSize: '0.85rem', color: '#8c9bae' }}>
+            No favorites yet — heart a job on the Home page to save it here.
+          </p>
         ) : (
           <div className="Recommended-cards-grid">
             {favorites.map((job) => (
-              <div className="Recommended-card" key={job.id}>
-
+              <div
+                className="Recommended-card"
+                key={job.id}
+                onClick={() => navigate(`/job/${job.id}`)}
+                style={{ cursor: 'pointer' }}
+              >
                 <div className="Recommended-card-top">
                   <div className="Recommended-company-info">
-                    <div className={`Recommended-logo ${job.logoClass}`}>{job.logoLetter}</div>
+                    <div className={`Recommended-logo ${getJobLogoClass(job.title)}`}>
+                      {job.title?.charAt(0) || 'J'}
+                    </div>
                     <div>
                       <h4>{job.title}</h4>
                       <span>{job.company}</span>
                     </div>
                   </div>
-                  {/* อยู่ในหน้านี้แปลว่า favorite อยู่แล้วเสมอ กดซ้ำ = เอาออกจากรายการ */}
                   <span
                     className="Recommended-favorite-btn is-favorited"
-                    onClick={() => toggleFavorite(job)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleFavorite(job);
+                    }}
                   >
                     ♥
                   </span>
                 </div>
 
                 <div className="Recommended-tags">
-                  {[job.type, job.level, job.workMode].map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
+                  {[job.type, job.level, job.work_mode || job.workMode]
+                    .filter(Boolean)
+                    .map((tag, idx) => (
+                      <span key={idx}>{tag}</span>
+                    ))}
                 </div>
 
                 <div className="Recommended-card-bottom">
                   <div>
-                    <div className="Recommended-salary">{job.salary}</div>
-                    <div className="Recommended-applicants">{job.applicants}</div>
+                    <div className="Recommended-salary">
+                      {job.salary || 'N/A'}
+                    </div>
+                    <div className="Recommended-applicants">
+                      {job.applicants || ''}
+                    </div>
                   </div>
-                  <div className={`Recommended-match-badge ${getMatchBadgeClass(job.match)}`}>
-                    {job.match}%
+                  <div
+                    className={`Recommended-match-badge ${getMatchBadgeClass(
+                      job.match_score || job.match || 0
+                    )}`}
+                  >
+                    {job.match_score || job.match || 0}%
                   </div>
                 </div>
               </div>

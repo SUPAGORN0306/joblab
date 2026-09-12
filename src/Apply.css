@@ -1,0 +1,990 @@
+/* ============================================ */
+/* Container                                     */
+/* ============================================ */
+
+.apply-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 960px;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  color: #fafafa;
+  box-sizing: border-box;
+  padding: 30px 20px 200px 30px;
+  padding-top: 67px;
+  position: relative;
+}
+
+@media (max-width: 1080px) {
+  .apply-container {
+    padding: 30px 40px 60px 40px !important;
+    padding-top: 67px !important;
+  }
+}
+
+.apply-loading {
+  text-align: center;
+  padding: 40px 0;
+  color: #8c9bae;
+}
+
+.apply-error {
+  color: #e74c3c;
+  padding: 20px 0;
+}
+
+/* ============================================ */
+/* Nav / Header                                  */
+/* ============================================ */
+
+.apply-nav-row {
+  margin-bottom: 20px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: #ffffff;
+}
+
+.back-arrow {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.apply-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.apply-header h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fafafa;
+  margin: 0 0 4px 0;
+}
+
+.apply-sub-title {
+  font-size: 0.75rem;
+  color: #b6b6b6;
+  margin: 0;
+}
+
+.apply-sub-title span {
+  color: #80ffd5;
+  font-weight: 600;
+}
+
+/* ============================================ */
+/* Grid Layout                                   */
+/* ============================================ */
+
+.apply-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* ============================================ */
+/* Left Card (Preview)                           */
+/* ============================================ */
+
+.apply-card-left {
+  background: rgba(220, 220, 220, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 20px;
+  padding: 28px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  position: sticky;
+  top: 90px;
+}
+
+.avatar-wrapper {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 2px dashed rgba(124, 159, 167, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 0.68rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.profile-info h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+}
+
+.profile-info p {
+  font-size: 0.7rem;
+  color: #8c9bae;
+  margin: 0;
+}
+
+.apply-notice-box {
+  background: rgba(128, 255, 213, 0.06);
+  border: 1px solid rgba(128, 255, 213, 0.15);
+  border-radius: 10px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.notice-dot {
+  width: 5px;
+  height: 5px;
+  background-color: #1fc18b;
+  border-radius: 50%;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.apply-notice-box p {
+  font-size: 0.62rem;
+  color: #b6b6b6;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Summary counters */
+.apply-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  width: 100%;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 4px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+}
+
+.summary-value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #80ffd5;
+}
+
+.summary-label {
+  font-size: 0.58rem;
+  color: #8c9bae;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Skills Preview */
+.skills-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: center;
+  width: 100%;
+}
+
+.skill-tag {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 4px 9px;
+  border-radius: 20px;
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: #292e30;
+}
+
+.skills-empty {
+  color: #697382;
+  font-size: 0.68rem;
+  font-style: italic;
+}
+
+.skills-more {
+  color: #80ffd5;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 4px 8px;
+}
+
+/* ============================================ */
+/* Right Column                                  */
+/* ============================================ */
+
+.apply-right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.apply-card-right {
+  background: rgba(220, 220, 220, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.section-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #d8d8d8;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-count {
+  background: rgba(128, 255, 213, 0.15);
+  color: #80ffd5;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.section-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ============================================ */
+/* Contact Grid                                  */
+/* ============================================ */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.contact-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.contact-field.full-width {
+  grid-column: span 2;
+}
+
+.field-label {
+  font-size: 0.7rem;
+  color: #b6b6b6;
+  font-weight: 500;
+}
+
+/* ============================================ */
+/* Form Fields                                   */
+/* ============================================ */
+
+.field-input-editable {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 9px 12px;
+  font-size: 0.72rem;
+  color: #1c4551;
+  outline: none;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.field-input-editable:focus {
+  background: #ffffff;
+  border-color: #80ffd5;
+  box-shadow: 0 0 0 2px rgba(128, 255, 213, 0.2);
+}
+
+.field-input-editable:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.field-textarea-editable {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 0.72rem;
+  color: #1c4551;
+  outline: none;
+  resize: vertical;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.field-textarea-editable:focus {
+  background: #ffffff;
+  border-color: #80ffd5;
+  box-shadow: 0 0 0 2px rgba(128, 255, 213, 0.2);
+}
+
+.field-box {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 9px 12px;
+  font-size: 0.72rem;
+  color: #1c4551;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.field-box:hover {
+  border-color: #80ffd5;
+}
+
+.file-upload-box {
+  position: relative;
+}
+
+.file-name {
+  font-weight: 500;
+  color: #1c4551;
+}
+
+.upload-link {
+  color: #0d6efd;
+  font-weight: 600;
+  font-size: 0.65rem;
+}
+
+.file-input-hidden {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* ============================================ */
+/* Skill Input + Chip Suggestions                */
+/* ============================================ */
+
+.skill-input-wrapper {
+  width: 100%;
+}
+
+.skill-input-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.skill-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.skill-add-btn {
+  background: rgba(128, 255, 213, 0.15);
+  border: 1px solid rgba(128, 255, 213, 0.4);
+  color: #80ffd5;
+  border-radius: 10px;
+  padding: 0 16px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.skill-add-btn:hover {
+  background: rgba(128, 255, 213, 0.25);
+  border-color: rgba(128, 255, 213, 0.6);
+}
+
+/* Chip Suggestions */
+.skill-suggestions-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.skill-suggestion-chip {
+  background: rgba(128, 255, 213, 0.12);
+  border: 1px solid rgba(128, 255, 213, 0.3);
+  color: #80ffd5;
+  padding: 5px 12px;
+  border-radius: 16px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.skill-suggestion-chip:hover {
+  background: rgba(128, 255, 213, 0.25);
+  border-color: rgba(128, 255, 213, 0.6);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(128, 255, 213, 0.15);
+}
+
+.skill-suggestion-chip:active {
+  transform: translateY(0);
+}
+
+/* Skills chips list */
+.skills-list-editable {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+  min-height: 30px;
+}
+
+.skill-chip {
+  background: rgba(128, 255, 213, 0.15);
+  border: 1px solid rgba(128, 255, 213, 0.4);
+  color: #80ffd5;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.skill-chip-remove {
+  background: none;
+  border: none;
+  color: #80ffd5;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0 2px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.skill-chip-remove:hover {
+  opacity: 1;
+  color: #ef4444;
+}
+
+.skills-empty-text {
+  color: #697382;
+  font-size: 0.7rem;
+  font-style: italic;
+}
+
+/* ============================================ */
+/* Add Item Button                               */
+/* ============================================ */
+
+.add-item-btn {
+  background: rgba(128, 255, 213, 0.1);
+  border: 1px solid rgba(128, 255, 213, 0.3);
+  color: #80ffd5;
+  cursor: pointer;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.add-item-btn:hover {
+  background: rgba(128, 255, 213, 0.2);
+  border-color: rgba(128, 255, 213, 0.5);
+}
+
+/* ============================================ */
+/* Empty State Card                              */
+/* ============================================ */
+
+.empty-state-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 32px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 2rem;
+  opacity: 0.5;
+}
+
+.empty-text {
+  color: #8c9bae;
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+/* ============================================ */
+/* Item Card (Experience / Education)            */
+/* ============================================ */
+
+.items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-number {
+  color: #80ffd5;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.remove-item-btn {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  color: #fca5a5;
+  font-size: 0.68rem;
+  padding: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.remove-item-btn:hover {
+  background: rgba(239, 68, 68, 0.25);
+  color: #ffffff;
+}
+
+.item-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.field-full {
+  grid-column: span 2;
+}
+
+/* Date Range */
+.date-range {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.date-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.date-label {
+  font-size: 0.62rem;
+  color: #8c9bae;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.date-range .field-input-editable {
+  width: 100%;
+}
+
+.date-sep {
+  color: #80ffd5;
+  font-size: 1rem;
+  font-weight: 700;
+  padding-bottom: 10px;
+  flex-shrink: 0;
+}
+
+/* Checkbox */
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  color: #b6b6b6;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-row input[type="checkbox"] {
+  accent-color: #80ffd5;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+}
+
+/* ============================================ */
+/* Actions Row                                   */
+/* ============================================ */
+
+.apply-actions-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.cancel-action-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 10px 22px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fafafa;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancel-action-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.submit-btn-custom {
+  background: #80ffd5;
+  color: #0b2118;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 24px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submit-btn-custom:hover:not(:disabled) {
+  background: #a3ffe3;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(128, 255, 213, 0.25);
+}
+
+.submit-btn-custom:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ============================================ */
+/* Responsive                                    */
+/* ============================================ */
+
+@media (max-width: 768px) {
+  .apply-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .apply-card-left {
+    position: static;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-field.full-width {
+    grid-column: span 1;
+  }
+
+  .item-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .field-full {
+    grid-column: span 1;
+  }
+
+  .apply-actions-row {
+    flex-direction: column-reverse;
+  }
+
+  .apply-actions-row button {
+    width: 100%;
+  }
+}
+
+/* ============================================ */
+/* Required / Optional Markers                   */
+/* ============================================ */
+
+.required {
+  color: #f472b6;
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+.optional-badge {
+  background: rgba(255, 255, 255, 0.06);
+  color: #8c9bae;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.6rem;
+  font-weight: 500;
+  text-transform: lowercase;
+  letter-spacing: 0.3px;
+}
+
+/* ============================================ */
+/* Disabled Button                               */
+/* ============================================ */
+
+.skill-add-btn.disabled,
+.add-item-btn.disabled {
+  opacity: 0.35;
+  cursor: not-allowed !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #697382 !important;
+}
+
+.skill-add-btn.disabled:hover,
+.add-item-btn.disabled:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  transform: none !important;
+}
+
+.skill-add-btn:disabled,
+.add-item-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* ============================================ */
+/* Field Wrap (with mini label)                  */
+/* ============================================ */
+
+.field-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field-mini-label {
+  font-size: 0.62rem;
+  color: #8c9bae;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* ============================================ */
+/* Empty State Enhancement                       */
+/* ============================================ */
+
+.empty-state-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 28px 20px;
+  background: rgba(128, 255, 213, 0.03);
+  border: 1px dashed rgba(128, 255, 213, 0.15);
+  border-radius: 14px;
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 2rem;
+  opacity: 0.6;
+}
+
+.empty-text {
+  color: #d8d8d8;
+  font-size: 0.78rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.empty-subtext {
+  color: #8c9bae;
+  font-size: 0.7rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ============================================ */
+/* Lucide Icons — Adjustments                    */
+/* ============================================ */
+
+/* File name with icon */
+.field-box .file-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.field-box .file-name svg {
+  flex-shrink: 0;
+  color: #0d6efd;
+}
+
+/* Empty icon wrapper */
+.empty-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: rgba(128, 255, 213, 0.1);
+  border: 1px solid rgba(128, 255, 213, 0.3);
+  color: #80ffd5;
+  margin-bottom: 4px;
+}
+
+/* Remove button with icon */
+.remove-item-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.remove-item-btn svg {
+  flex-shrink: 0;
+}
+
+/* Skill chip remove with icon */
+.skill-chip-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Loading state */
+.apply-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Error state */
+.apply-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fca5a5;
+  padding: 20px 0;
+  font-size: 0.85rem;
+}
+
+/* ============================================ */
+/* Resume Display                                */
+/* ============================================ */
+
+.resume-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.resume-display .file-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #1c4551;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.resume-display .file-name svg {
+  color: #0d6efd;
+  flex-shrink: 0;
+}
+
+.resume-display .upload-link {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  flex-shrink: 0;
+}
+
+.resume-warning {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+  font-size: 0.7rem;
+}
+
+.resume-warning svg {
+  flex-shrink: 0;
+}

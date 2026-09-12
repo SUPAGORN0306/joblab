@@ -6,7 +6,7 @@
   justify-content: center;
   width: 100%;
   min-height: 100vh;
-  padding: 30px 20px 60px 20px;
+  padding: 25px 20px 60px 20px;
   overflow-x: hidden;
   position: relative;
   background-color: #0b0f19; 
@@ -43,7 +43,7 @@
 }
 
 .login-header h1 {
-  font-size: 2.2rem;
+  font-size: 1.9rem;
   font-weight: 700;
   color: #ffffff;
   margin: 0 0 8px 0;
@@ -54,12 +54,11 @@
 }
 
 .login-header p {
-  font-size: 1rem;
-  color: #8c9bae;
+  font-size: 0.95rem;
+  color: #8896a9;
   margin: 0;
 }
 
-/* --- การ์ดฟอร์มหลัก (ใช้สไตล์กล่อง Glassmorphism แบบ .search-filter-section) --- */
 .login-card {
   background: linear-gradient(
     to bottom,
@@ -69,7 +68,7 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   
-  border-radius: 40px;
+  border-radius: 30px;
   border: 1px solid rgba(255, 255, 255, 0.7);
   box-shadow: 
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
@@ -82,15 +81,15 @@
   overflow: hidden;
 
   width: 100%;
-  max-width: 520px;
-  padding: 40px 35px;
+  max-width: 350px;
+  max-height: 550px;
+  padding: 25px 25px;
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 16px;
   box-sizing: border-box;
 }
 
-/* แสงสะท้อนขอบบนกระจก (เลียนแบบ .search-filter-section::before) */
 .login-card::before {
   content: '';
   position: absolute;
@@ -103,25 +102,24 @@
     rgba(255, 255, 255, 0.5) 0%,
     rgba(255, 255, 255, 0.05) 100%
   );
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
   pointer-events: none;
 }
 
-/* --- ปุ่มสลับ Tab (Log in / Sign up) --- */
 .login-tabs {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   background-color: rgba(255, 255, 255, 0.15);
-  padding: 6px;
+  padding: 5px;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .tab-btn {
-  padding: 12px;
-  border-radius: 16px;
-  font-size: 0.95rem;
+  padding: 10px;
+  border-radius: 14px;
+  font-size: 0.8rem;
   font-weight: 600;
   border: none;
   background: transparent;
@@ -142,12 +140,11 @@
 
 .active-signup {
   background-color: #f0d154; /* สีเหลืองนีออนเด่นๆ */
-  color: #1C274C;
+  color: #0a122c;
   box-shadow: 0 4px 15px rgba(240, 209, 84, 0.4);
   font-weight: 700;
 }
 
-/* --- ตัวเลือกประเภทผู้ใช้ (Job seeker / Employer) --- */
 .user-type-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -158,8 +155,8 @@
   cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background-color: rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  padding: 16px;
+  border-radius: 16px;
+  padding: 12px;
   transition: all 0.2s ease;
 }
 
@@ -177,16 +174,16 @@
 .type-title {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 4px;
-  font-size: 0.95rem;
+  gap: 10px;
+  margin-bottom: 3px;
+  font-size: 0.8rem;
   font-weight: 600;
   color: #ffffff;
 }
 
 .dot {
-  width: 10px;
-  height: 10px;
+  width: 1px;
+  height: 1px;
   border-radius: 50%;
   background-color: #8c9bae;
   display: inline-block;
@@ -198,33 +195,32 @@
 }
 
 .type-desc {
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   color: #cbd5e1;
   padding-left: 18px;
   margin: 0;
 }
 
-/* --- ฟอร์ม Input (เลียนแบบ .search-input) --- */
 .login-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
 }
 
 .input-group label {
   display: block;
-  font-size: 0.85rem;
+  font-size: 0.65rem;
   color: #ffffff;
   font-weight: 600;
-  margin-bottom: 6px;
+  margin-bottom: 5px;
 }
 
 .input-group input {
   width: 100%;
-  padding: 16px 20px;
-  font-size: 1rem;
+  padding: 10px 20px;
+  font-size: 0.80rem;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 20px;
+  border-radius: 14px;
   outline: none;
   background-color: rgba(255, 255, 255, 0.9);
   color: #0d1b3e;
@@ -243,19 +239,18 @@
   box-shadow: 0 0 15px rgba(240, 209, 84, 0.2);
 }
 
-/* --- ปุ่ม Submit (เลียนแบบ .search-btn) --- */
 .submit-container {
-  margin-top: 10px;
+  margin-top: 16px;
 }
 
 .submit-btn {
   width: 100%;
   background: #f0d154;
   color: #1C274C;
-  padding: 16px 30px;
-  border-radius: 20px;
+  padding: 12px 30px;
+  border-radius: 26px;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   cursor: pointer;
   border: none;
   transition: all 0.2s ease;
@@ -269,11 +264,10 @@
   box-shadow: 0 6px 20px rgba(240, 209, 84, 0.4);
 }
 
-/* --- เส้นคั่นกลาง (Divider) --- */
 .divider {
   position: relative;
   display: flex;
-  padding: 10px 0;
+  padding: 1px 0;
   align-items: center;
   justify-content: center;
 }
@@ -289,22 +283,23 @@
 .divider span {
   position: relative;
   background-color: rgba(217, 235, 249, 0.8);
-  padding: 0 12px;
+  padding: 0 16px;
   color: #475569;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 600;
   border-radius: 10px;
 }
 
-/* --- ปุ่ม Continue as guest --- */
 .guest-container {
   text-align: center;
+  margin-top: -15px;
+
 }
 
 .guest-btn {
   background: transparent;
   border: none;
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   color: #cbd5e1;
   cursor: pointer;
   text-decoration: underline;

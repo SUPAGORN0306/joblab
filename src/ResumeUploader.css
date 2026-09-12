@@ -1,0 +1,255 @@
+/* ============================================ */
+/* Resume Uploader                               */
+/* ============================================ */
+
+.resume-uploader {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  box-sizing: border-box;
+}
+
+.resume-uploader-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.resume-header-icon {
+  color: #80ffd5;
+  flex-shrink: 0;
+}
+
+.resume-header-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #d8d8d8;
+}
+
+/* ============================================ */
+/* Current Resume                                */
+/* ============================================ */
+
+.resume-current {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.resume-file-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(128, 255, 213, 0.2);
+  border-radius: 10px;
+}
+
+.resume-file-icon {
+  color: #80ffd5;
+  flex-shrink: 0;
+}
+
+.resume-filename {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+.resume-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  border: 1px solid;
+}
+
+.resume-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.resume-btn-view {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.3);
+  color: #38bdf8;
+}
+
+.resume-btn-view:hover:not(:disabled) {
+  background: rgba(56, 189, 248, 0.2);
+}
+
+.resume-btn-change {
+  background: rgba(128, 255, 213, 0.12);
+  border-color: rgba(128, 255, 213, 0.3);
+  color: #80ffd5;
+}
+
+.resume-btn-change:hover:not(:disabled) {
+  background: rgba(128, 255, 213, 0.2);
+}
+
+.resume-btn-delete {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+}
+
+.resume-btn-delete:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+/* ============================================ */
+/* Empty State                                   */
+/* ============================================ */
+
+.resume-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 20px 12px;
+  background: rgba(128, 255, 213, 0.03);
+  border: 1px dashed rgba(128, 255, 213, 0.2);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.resume-empty-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(128, 255, 213, 0.1);
+  border: 1px solid rgba(128, 255, 213, 0.3);
+  color: #80ffd5;
+  margin-bottom: 4px;
+}
+
+.resume-empty-text {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #d8d8d8;
+  margin: 0;
+}
+
+.resume-empty-subtext {
+  font-size: 0.68rem;
+  color: #8c9bae;
+  margin: 0;
+}
+
+.resume-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 10px 20px;
+  background: #80ffd5;
+  color: #0b2118;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.resume-upload-btn:hover:not(:disabled) {
+  background: #a3ffe3;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(128, 255, 213, 0.25);
+}
+
+.resume-upload-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ============================================ */
+/* Hint                                          */
+/* ============================================ */
+
+.resume-hint {
+  font-size: 0.62rem;
+  color: #8c9bae;
+  margin: 0;
+  text-align: center;
+  font-style: italic;
+}
+
+/* ============================================ */
+/* Messages                                      */
+/* ============================================ */
+
+.resume-message {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.resume-message svg {
+  flex-shrink: 0;
+}
+
+.resume-message span {
+  flex: 1;
+}
+
+.resume-message-error {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+}
+
+.resume-message-success {
+  background: rgba(128, 255, 213, 0.15);
+  border: 1px solid rgba(128, 255, 213, 0.3);
+  color: #80ffd5;
+}
+
+.resume-message-close {
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  opacity: 0.7;
+}
+
+.resume-message-close:hover {
+  opacity: 1;
+}

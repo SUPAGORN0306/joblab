@@ -4,13 +4,25 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import Login from './pages/Login.jsx'      
 import App from './App.jsx' 
+import EmployerApp from './EmployerApp.jsx'
+
 import Home from './pages/Home.jsx'
 import Favorite from './pages/Favorite.jsx' 
+import Apply from './pages/Apply.jsx'
 import AppStatus from './pages/AppStatus.jsx'
 import Profile from './pages/Profile.jsx'
+import Edit from './pages/Edit.jsx'
 import JobDetail from './pages/JobDetail.jsx'
+import EmployerDashboard from './pages/EmployerDashboard.jsx'
+import AllJobs from './pages/AllJobs.jsx'
+
 import { FavoritesProvider } from './context/FavoritesContext.jsx'
+import { AuthProvider } from './context/AuthContext.jsx'
+import ProtectedRoute from './components/ProtectedRoute.jsx'
 import './index.css'
+
+import ViewApplicants from './pages/ViewApplicants.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -19,20 +31,42 @@ const router = createBrowserRouter([
   },
   {
     path: "/", 
-    element: <App />,
+    element: (
+      <ProtectedRoute requiredRole="candidate">
+        <App />
+      </ProtectedRoute>
+    ),
     children: [
-      { path: "home", element: <Home /> },        
+      { path: "home", element: <Home /> },   
+      { path: "all-jobs", element: <AllJobs /> },      
       { path: "favorite", element: <Favorite /> },
       { path: "status", element: <AppStatus /> },  
       { path: "profile", element: <Profile /> }, 
+      { path: "profile/edit", element: <Edit /> },
       { path: "job/:id", element: <JobDetail /> },
+      { path: "job/:id/apply", element: <Apply /> },
+    ],
+  },
+  {
+    path: "/employer",
+    element: (
+      <ProtectedRoute requiredRole="employer">
+        <EmployerApp />
+      </ProtectedRoute>
+    ),
+    children: [
+      { path: "dashboard", element: <EmployerDashboard /> },
+      { path: "jobs/:jobId/applicants", element: <ViewApplicants /> }, 
     ],
   },
 ])
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <FavoritesProvider>
-      <RouterProvider router={router} />
-    </FavoritesProvider>
+    <AuthProvider>
+      <FavoritesProvider>
+        <RouterProvider router={router} />
+      </FavoritesProvider>
+    </AuthProvider>
   </React.StrictMode>,
 )

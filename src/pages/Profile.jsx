@@ -1,99 +1,312 @@
-import React from 'react';
+import { resolveFileUrl } from '../utils/apiUrl';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { fetchFullProfile } from '../api';
+import { useAuth } from '../context/AuthContext';
 import '../Profile.css';
 
 export default function Profile() {
+  const navigate = useNavigate();
+  const { user, activeRole, logout, switchRole } = useAuth();
+
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [profile, setProfile] = useState(null);
+  const [skills, setSkills] = useState([]);
+  const [experiences, setExperiences] = useState([]);
+  const [educations, setEducations] = useState([]);
+
+  useEffect(() => {
+    const load = async () => {
+      try {
+        setLoading(true);
+        const data = await fetchFullProfile();
+        setProfile(data.profile);
+        setSkills(data.skills || []);
+        setExperiences(data.experiences || []);
+        setEducations(data.educations || []);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    load();
+  }, []);
+
+  const handleLogout = () => {
+    if (window.confirm('Are you sure you want to logout?')) {
+      logout();
+      navigate('/');
+    }
+  };
+
+  const handleSwitchRole = (role) => {
+    if (role === activeRole) return;
+    const confirmed = window.confirm(
+      `Switch to "${role === 'employer' ? 'Employer' : 'Job Seeker'}" mode?`
+    );
+    if (!confirmed) return;
+    switchRole(role);
+    window.location.href = role === 'employer' ? '/employer/dashboard' : '/home';
+  };
+
+  if (loading) {
+    return (
+      <div className="profile-container">
+        <p style={{ padding: '40px 0', textAlign: 'center', color: '#8c9bae' }}>
+          Loading profile...
+        </p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="profile-container">
+        <p style={{ padding: '40px 0', textAlign: 'center', color: '#e74c3c' }}>
+          ❌ Error: {error}
+        </p>
+      </div>
+    );
+  }
+
+  const formatDate = (dateStr) => {
+    if (!dateStr) return '';
+    const d = new Date(dateStr);
+    return d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+  };
+
+  const calculateStrength = () => {
+    let score = 0;
+    if (profile?.full_name) score += 20;
+    if (profile?.email) score += 10;
+    if (profile?.phone) score += 10;
+    if (profile?.location) score += 10;
+    if (profile?.bio) score += 10;
+    if (profile?.profile_image) score += 10;
+    if (skills.length > 0) score += 10;
+    if (experiences.length > 0) score += 10;
+    if (educations.length > 0) score += 10;
+    return Math.min(score, 100);
+  };
+  const strength = calculateStrength();
+
+  const hasMultipleRoles = user?.roles?.length > 1;
+
   return (
     <div className="profile-container">
       <div className="profile-header">
         <div>
           <h1>User profile</h1>
+          {/* Active Role Badge */}
+          <div
+            className={`profile-role-badge ${activeRole === 'employer' ? 'employer' : 'candidate'}`}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              marginTop: '6px',
+              padding: '4px 10px',
+              background: activeRole === 'employer'
+                ? 'rgba(128, 255, 213, 0.15)'
+                : 'rgba(56, 189, 248, 0.15)',
+              border: activeRole === 'employer'
+                ? '1px solid rgba(128, 255, 213, 0.4)'
+                : '1px solid rgba(56, 189, 248, 0.4)',
+              borderRadius: '20px',
+              fontSize: '0.7rem',
+              fontWeight: '600',
+              color: activeRole === 'employer' ? '#80ffd5' : '#38bdf8',
+            }}
+          >
+            <span
+              style={{
+                width: '6px',
+                height: '6px',
+                borderRadius: '50%',
+                background: activeRole === 'employer' ? '#80ffd5' : '#38bdf8',
+              }}
+            ></span>
+            {activeRole === 'employer' ? 'Employer mode' : 'Job Seeker mode'}
+          </div>
         </div>
-        <button className="edit-profile-btn">Edit profile</button>
+
+        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+          {/* Switch Role (ถ้ามี 2 roles) */}
+          {hasMultipleRoles && (
+            <button
+              className="edit-profile-btn"
+              onClick={() =>
+                handleSwitchRole(activeRole === 'employer' ? 'candidate' : 'employer')
+              }
+              style={{
+                background: 'rgba(128, 255, 213, 0.15)',
+                borderColor: 'rgba(128, 255, 213, 0.5)',
+                color: '#80ffd5',
+              }}
+            >
+              Switch to {activeRole === 'employer' ? 'Job Seeker' : 'Employer'}
+            </button>
+          )}
+
+          <button
+            className="edit-profile-btn"
+            onClick={() => navigate('/profile/edit')}
+          >
+            Edit profile
+          </button>
+
+          <button
+            className="edit-profile-btn"
+            onClick={handleLogout}
+            style={{
+              background: 'rgba(239, 68, 68, 0.15)',
+              borderColor: 'rgba(239, 68, 68, 0.5)',
+              color: '#fca5a5',
+            }}
+          >
+            Logout
+          </button>
+        </div>
       </div>
 
       <div className="profile-grid">
-        
+        {/* LEFT CARD */}
         <div className="profile-card-left">
-          <div className="avatar-wrapper">
-            <span>Avatar</span>
-          </div>
-
+         <div className="avatar-wrapper" style={{ overflow: 'hidden', padding: 0 }}>
+          {profile?.profile_image ? (
+            <img
+              src={
+                profile.profile_image.startsWith('http')
+                  ? profile.profile_image
+                  : resolveFileUrl(profile.profile_image)
+              }
+              alt="Avatar"
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+          ) : (
+            <span style={{ fontSize: '28px', fontWeight: 'bold' }}>
+              {profile?.full_name?.charAt(0) || 'U'}
+            </span>
+          )}
+        </div>
           <div className="profile-info">
-            <h2>Nichakan Srisuk</h2>
-            <p>Product Designer · Bangkok, TH</p>
+            <h2>{profile?.full_name || profile?.username}</h2>
+            <p>
+              {profile?.role || 'Candidate'} · {profile?.location || 'N/A'}
+            </p>
           </div>
 
-          {/* วงกลมแสดง Profile Strength */}
           <div className="profile-strength-container">
-            <div className="strength-circle">
-              <span className="strength-value">79%</span>
+            <div
+              className="strength-circle"
+              style={{
+                background: `conic-gradient(#80ffd5 ${strength}%, rgba(255, 255, 255, 0.3) 0%)`,
+              }}
+            >
+              <span className="strength-value">{strength}%</span>
             </div>
             <span className="strength-label">Profile strength</span>
           </div>
 
-          {/* ป้ายทักษะ (Skills) */}
           <div className="skills-container">
-            <span className="skill-tag">Figma</span>
-            <span className="skill-tag">Design systems</span>
-            <span className="skill-tag">Prototyping</span>
-            <span className="skill-tag">User research</span>
+            {skills.length > 0 ? (
+              skills.map((s) => (
+                <span className="skill-tag" key={s.id || s.skill_name}>
+                  {s.skill_name}
+                </span>
+              ))
+            ) : (
+              <span style={{ color: '#697382', fontSize: '0.7rem' }}>
+                No skills added
+              </span>
+            )}
           </div>
         </div>
 
-        {/* โครงสร้างฝั่งขวา: ข้อมูลติดต่อ และ ประสบการณ์ */}
+        {/* RIGHT COLUMN */}
         <div className="profile-right-column">
-          
-          {/* ข้อมูลติดต่อ (Contact Details) */}
+          {/* Contact */}
           <div className="profile-card-right">
             <h3 className="section-title">Contact details</h3>
             <div className="contact-grid">
               <div className="contact-field">
                 <span className="field-label">Email</span>
-                <div className="field-box">nichakan@email.com</div>
+                <div className="field-box">{profile?.email || '-'}</div>
               </div>
               <div className="contact-field">
                 <span className="field-label">Phone</span>
-                <div className="field-box">+66 91 234 5678</div>
+                <div className="field-box">{profile?.phone || '-'}</div>
               </div>
               <div className="contact-field">
                 <span className="field-label">Location</span>
-                <div className="field-box">Bangkok, Thailand</div>
+                <div className="field-box">{profile?.location || '-'}</div>
               </div>
               <div className="contact-field">
-                <span className="field-label">Resume</span>
-                <div className="field-box">Nichakan_Resume.pdf</div>
+                <span className="field-label">Bio</span>
+                <div className="field-box">{profile?.bio || '-'}</div>
               </div>
             </div>
           </div>
 
-          {/* ประสบการณ์ทำงาน (Experience) */}
+          {/* Experience */}
           <div className="profile-card-right">
             <h3 className="section-title">Experience</h3>
             <div className="experience-list">
-              
-              <div className="experience-item">
-                <span className="dot experience"></span>
-                <div className="experience-details">
-                  <h3>Product Designer</h3>
-                  <p className="company-location">Wise — Remote</p>
-                  <p className="duration">2023 - Present</p>
-                </div>
-              </div>
-
-              <div className="experience-item">
-                <span className="dot experience"></span>
-                <div className="experience-details">
-                  <h3>UI/UX Designer</h3>
-                  <p className="company-location">BeReal — Los Angeles</p>
-                  <p className="duration">2021 - 2023</p>
-                </div>
-              </div>
-
+              {experiences.length > 0 ? (
+                experiences.map((item) => (
+                  <div className="experience-item" key={item.id}>
+                    <span className="dot experience"></span>
+                    <div className="experience-details">
+                      <h3>{item.job_title}</h3>
+                      <p className="company-location">
+                        {item.company_name} · {item.location || 'N/A'}
+                      </p>
+                      <p className="duration">
+                        {formatDate(item.start_date)} -{' '}
+                        {item.is_current ? 'Present' : formatDate(item.end_date)}
+                      </p>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <p style={{ color: '#8c9bae', fontSize: '0.8rem' }}>
+                  No experience added yet
+                </p>
+              )}
             </div>
           </div>
 
+          {/* Education */}
+          <div className="profile-card-right">
+            <h3 className="section-title">Education</h3>
+            <div className="experience-list">
+              {educations.length > 0 ? (
+                educations.map((item) => (
+                  <div className="experience-item" key={item.id}>
+                    <span className="dot experience"></span>
+                    <div className="experience-details">
+                      <h3>
+                        {item.degree} - {item.field_of_study}
+                      </h3>
+                      <p className="company-location">{item.institution}</p>
+                      <p className="duration">
+                        {formatDate(item.start_date)} -{' '}
+                        {item.is_current ? 'Present' : formatDate(item.end_date)}
+                        {item.gpa ? ` · GPA ${item.gpa}` : ''}
+                      </p>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <p style={{ color: '#8c9bae', fontSize: '0.8rem' }}>
+                  No education added yet
+                </p>
+              )}
+            </div>
+          </div>
         </div>
-
       </div>
     </div>
   );

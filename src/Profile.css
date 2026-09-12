@@ -1,23 +1,23 @@
 .profile-container {
   display: flex;
   flex-direction: column;
-  max-width: 1200px;
+  max-width: 960px;
   width: 100%;
   min-height: 100vh;
   margin: 0 auto;
+  color: #fafafa;
 
-  color: #f6f8f6;
-  box-sizing: border-box;
+  box-sizing: border-box; 
   padding: 30px 20px 200px 30px;
-  padding-top: 130px;
+  padding-top: 67px;
   overflow-x: hidden;
-  position: relative;
+  position: relative; 
 }
 
 @media (max-width: 1080px) {
   .profile-container {
     padding: 30px 40px 0px 40px !important; 
-    padding-top: 130px !important;  
+    padding-top: 67px !important;  
   }
 }
 
@@ -29,7 +29,7 @@
 }
 
 .profile-header h1 {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: #fafafa;
   margin: 0;
@@ -57,9 +57,9 @@
   position: relative;
   overflow: hidden;
 
-  padding: 12px 30px;
+  padding: 9.6px 24px;
   border-radius: 12px;
-  font-size: 0.9rem;
+  font-size: 0.72rem;
   font-weight: 600;
   cursor: pointer;
   backdrop-filter: blur(12px);
@@ -90,7 +90,7 @@
 
 .profile-grid {
   display: grid;
-  grid-template-columns: 350px 1fr;
+  grid-template-columns: 280px 1fr;
   gap: 20px;
   align-items: start;
 }
@@ -100,7 +100,7 @@
   border: 1px solid rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(16px);
   border-radius: 20px;
-  padding: 30px 20px;
+  padding: 34px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -109,27 +109,27 @@
 }
 
 .avatar-wrapper {
-  width: 90px;
-  height: 90px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   border: 2px dashed rgba(124, 159, 167, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #ffffff;
-  font-size: 0.85rem;
+  font-size: 0.68rem;
   background: rgba(255, 255, 255, 0.03);
 }
 
 .profile-info h2 {
-  font-size: 1.6rem;
+  font-size: 1.28rem;
   font-weight: 700;
   color: #ffffff;
   margin: 0 0 4px 0;
 }
 
 .profile-info p {
-  font-size: 0.85rem;
+  font-size: 0.68rem;
   color: #697382;
   margin: 0;
 }
@@ -139,12 +139,12 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  margin: 10px 0;
+  margin: 0px 0;
 }
 
 .strength-circle {
-  width: 90px;
-  height: 90px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   background: conic-gradient(#80ffd5 79%, rgba(255, 255, 255, 0.3) 0%);
   display: flex;
@@ -156,38 +156,38 @@
 .strength-circle::before {
   content: '';
   position: absolute;
-  width: 72px;
-  height: 72px;
+  width: 57px;
+  height: 57px;
   background: #2d2e33; 
   border-radius: 50%;
 }
 
 .strength-value {
   position: relative;
-  font-size: 1.15rem;
+  font-size: 0.8rem;
   font-weight: 700;
   color: #ffffff;
 }
 
 .strength-label {
-  font-size: 1.1rem;
+  font-size: 0.88rem;
   font-weight: 700;
-  color: #95a0b0;
+  color: #dee4ec;
 }
 
 .skills-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 5px;
   justify-content: center;
   width: 100%;
 }
 
 .skill-tag {
   background:rgb(255, 255, 255);
-  padding: 6px 12px;
+  padding: 4.8px 9.6px;
   border-radius: 20px;
-  font-size: 0.85rem;
+  font-size: 0.68rem;
   font-weight: 500;
   color: #292e30;
 }
@@ -195,7 +195,8 @@
 .profile-right-column {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
+
 }
 
 .profile-card-right {
@@ -203,14 +204,14 @@
   border: 1px solid rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(16px);
   border-radius: 20px;
-  padding: 24px;
+  padding: 19.2px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1.8px;
 }
 
 .section-title {
-  font-size: 1.1rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color:#d8d8d8;
   margin: 0 0 4px 0;
@@ -219,17 +220,16 @@
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  gap: 12.8px;
 }
 
 .contact-field {
   display: flex;
   flex-direction: column;
-  gap: 6px;
 }
 
 .field-label {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: #b6b6b6;
 }
 
@@ -237,15 +237,15 @@
   background: rgba(255, 255, 255);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  padding: 12px 16px;
-  font-size: 0.85rem;
+  padding: 8px 10px;
+  font-size: 0.68rem;
   color: #1c4551;
 }
 
 .experience-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
 }
 
 .experience-item {
@@ -255,15 +255,15 @@
 }
 
 .dot.experience {
-  width: 8px;
-  height: 8px;
+  width: 5px;
+  height: 5px;
   background-color: #1fc18b; 
   border-radius: 50%;
-  margin-top: 6px;
+  /* margin-top: px; */
 }
 
 .experience-details h3 {
-  font-size: 0.95rem;
+  font-size: 0.76rem;
   font-weight: 700;
   /* color: #598693; */
   color: #ffffff;
@@ -271,13 +271,50 @@
 }
 
 .experience-details .company-location {
-  font-size: 0.8rem;
+  font-size: 0.64rem;
   color: #fafafa ;
   margin: 0 0 2px 0;
 }
 
 .experience-details .duration {
-  font-size: 0.75rem;
+  font-size: 0.6rem;
   color:#94a3b8;
   margin: 0;
+}
+/* Active Role Badge */
+.profile-role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.profile-role-badge.employer {
+  background: rgba(128, 255, 213, 0.15);
+  border: 1px solid rgba(128, 255, 213, 0.4);
+  color: #80ffd5;
+}
+
+.profile-role-badge.candidate {
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
+}
+
+.profile-role-badge .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.profile-role-badge.employer .dot {
+  background: #80ffd5;
+}
+
+.profile-role-badge.candidate .dot {
+  background: #38bdf8;
 }

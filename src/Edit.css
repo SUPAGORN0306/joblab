@@ -1,0 +1,702 @@
+/* ============================================ */
+/* Container                                     */
+/* ============================================ */
+
+.edit-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 960px;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 30px 20px 200px 30px;
+  padding-top: 67px;
+  overflow-x: hidden;
+  position: relative;
+  color: #fafafa;
+}
+
+@media (max-width: 1080px) {
+  .edit-container {
+    padding: 30px 40px 60px 40px !important;
+    padding-top: 67px !important;
+  }
+}
+
+.edit-loading {
+  text-align: center;
+  padding: 40px 0;
+  color: #8c9bae;
+}
+
+.edit-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  font-size: 0.8rem;
+}
+
+.edit-error svg {
+  flex-shrink: 0;
+}
+
+/* ============================================ */
+/* Header                                        */
+/* ============================================ */
+
+.edit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.edit-header h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fafafa;
+  margin: 0;
+}
+
+.edit-sub-title {
+  font-size: 0.75rem;
+  color: #8c9bae;
+  margin: 4px 0 0 0;
+}
+
+.edit-header-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.save-btn,
+.cancel-btn {
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 11px 26px;
+  transition: all 0.2s ease;
+}
+
+.save-btn {
+  background: #80ffd5;
+  border: none;
+  color: #0b2118;
+}
+
+.save-btn:hover:not(:disabled) {
+  background: #a3ffe3;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(128, 255, 213, 0.25);
+}
+
+.save-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cancel-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #d8d8d8;
+}
+
+.cancel-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* ============================================ */
+/* Grid Layout (2 columns)                       */
+/* ============================================ */
+
+.edit-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* ============================================ */
+/* Left Card                                     */
+/* ============================================ */
+
+.edit-card-left {
+  background: rgba(220, 220, 220, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 20px;
+  padding: 28px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  position: sticky;
+  top: 90px;
+}
+
+/* ============================================ */
+/* Edit Field                                    */
+/* ============================================ */
+
+.edit-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  width: 100%;
+}
+
+.skills-field {
+  align-items: center;
+}
+
+.field-label {
+  font-size: 0.7rem;
+  color: #b6b6b6;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.required {
+  color: #f472b6;
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+.field-input {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 9px 12px;
+  font-size: 0.72rem;
+  color: #1c4551;
+  outline: none;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.field-input:focus {
+  background: #ffffff;
+  border-color: #80ffd5;
+  box-shadow: 0 0 0 2px rgba(128, 255, 213, 0.2);
+}
+
+textarea.field-input {
+  resize: vertical;
+  min-height: 70px;
+}
+
+/* ============================================ */
+/* Right Column                                  */
+/* ============================================ */
+
+.edit-right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.edit-card-right {
+  background: rgba(220, 220, 220, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ============================================ */
+/* Section Header                                */
+/* ============================================ */
+
+.section-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #d8d8d8;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-count {
+  background: rgba(128, 255, 213, 0.15);
+  color: #80ffd5;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.65rem;
+  font-weight: 600;
+}
+
+.optional-badge {
+  background: rgba(255, 255, 255, 0.06);
+  color: #8c9bae;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.6rem;
+  font-weight: 500;
+  text-transform: lowercase;
+}
+
+/* ============================================ */
+/* Add Item Button                               */
+/* ============================================ */
+
+.add-item-btn {
+  background: rgba(128, 255, 213, 0.1);
+  border: 1px solid rgba(128, 255, 213, 0.3);
+  color: #80ffd5;
+  cursor: pointer;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.add-item-btn:hover:not(:disabled) {
+  background: rgba(128, 255, 213, 0.2);
+  border-color: rgba(128, 255, 213, 0.5);
+}
+
+.add-item-btn.disabled,
+.add-item-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #697382;
+}
+
+/* ============================================ */
+/* Skill Input + Chip Suggestions                */
+/* ============================================ */
+
+.skill-input-wrapper {
+  width: 100%;
+}
+
+.skill-input-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.skill-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.skill-add-btn {
+  background: rgba(128, 255, 213, 0.15);
+  border: 1px solid rgba(128, 255, 213, 0.4);
+  color: #80ffd5;
+  border-radius: 10px;
+  padding: 0 16px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.skill-add-btn:hover:not(:disabled) {
+  background: rgba(128, 255, 213, 0.25);
+  border-color: rgba(128, 255, 213, 0.6);
+}
+
+.skill-add-btn.disabled,
+.skill-add-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #697382;
+}
+
+.skill-suggestions-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.skill-suggestion-chip {
+  background: rgba(128, 255, 213, 0.12);
+  border: 1px solid rgba(128, 255, 213, 0.3);
+  color: #80ffd5;
+  padding: 5px 12px;
+  border-radius: 16px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.skill-suggestion-chip:hover {
+  background: rgba(128, 255, 213, 0.25);
+  border-color: rgba(128, 255, 213, 0.6);
+  transform: translateY(-1px);
+}
+
+.skills-list-editable {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+  min-height: 30px;
+  width: 100%;
+  justify-content: center;
+}
+
+.skill-chip {
+  background: rgba(128, 255, 213, 0.15);
+  border: 1px solid rgba(128, 255, 213, 0.4);
+  color: #80ffd5;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.skill-chip-remove {
+  background: none;
+  border: none;
+  color: #80ffd5;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0 2px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.skill-chip-remove:hover {
+  opacity: 1;
+  color: #ef4444;
+}
+
+.skills-empty-text {
+  color: #697382;
+  font-size: 0.7rem;
+  font-style: italic;
+}
+
+/* ============================================ */
+/* Item Card (Experience / Education)            */
+/* ============================================ */
+
+.items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-number {
+  color: #80ffd5;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.remove-item-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  color: #fca5a5;
+  font-size: 0.68rem;
+  padding: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.remove-item-btn svg {
+  flex-shrink: 0;
+}
+
+.remove-item-btn:hover {
+  background: rgba(239, 68, 68, 0.25);
+  color: #ffffff;
+}
+
+.item-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.field-full {
+  grid-column: span 2;
+}
+
+.field-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field-mini-label {
+  font-size: 0.62rem;
+  color: #8c9bae;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* ============================================ */
+/* Date Range                                    */
+/* ============================================ */
+
+.date-range {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.date-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.date-label {
+  font-size: 0.62rem;
+  color: #8c9bae;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.date-sep {
+  color: #80ffd5;
+  font-size: 1rem;
+  font-weight: 700;
+  padding-bottom: 10px;
+  flex-shrink: 0;
+}
+
+/* ============================================ */
+/* Checkbox Row                                  */
+/* ============================================ */
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  color: #b6b6b6;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-row input[type="checkbox"] {
+  accent-color: #80ffd5;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+}
+
+/* ============================================ */
+/* Textarea / Input Editable                     */
+/* ============================================ */
+
+.field-textarea-editable {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 0.72rem;
+  color: #1c4551;
+  outline: none;
+  resize: vertical;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.field-textarea-editable:focus {
+  background: #ffffff;
+  border-color: #80ffd5;
+  box-shadow: 0 0 0 2px rgba(128, 255, 213, 0.2);
+}
+
+.field-input-editable {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 9px 12px;
+  font-size: 0.72rem;
+  color: #1c4551;
+  outline: none;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.field-input-editable:focus {
+  background: #ffffff;
+  border-color: #80ffd5;
+  box-shadow: 0 0 0 2px rgba(128, 255, 213, 0.2);
+}
+
+.field-input-editable:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ============================================ */
+/* Empty State Card                              */
+/* ============================================ */
+
+.empty-state-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 28px 20px;
+  background: rgba(128, 255, 213, 0.03);
+  border: 1px dashed rgba(128, 255, 213, 0.15);
+  border-radius: 14px;
+  text-align: center;
+}
+
+.empty-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: rgba(128, 255, 213, 0.1);
+  border: 1px solid rgba(128, 255, 213, 0.3);
+  color: #80ffd5;
+  margin-bottom: 4px;
+}
+
+.empty-text {
+  color: #d8d8d8;
+  font-size: 0.78rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.empty-subtext {
+  color: #8c9bae;
+  font-size: 0.7rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ============================================ */
+/* Responsive                                    */
+/* ============================================ */
+
+@media (max-width: 900px) {
+  .edit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .edit-card-left {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .edit-container {
+    padding: 30px 16px 60px 16px !important;
+  }
+
+  .edit-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .edit-header-actions {
+    width: 100%;
+  }
+
+  .edit-header-actions button {
+    flex: 1;
+  }
+
+  .item-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .field-full {
+    grid-column: span 1;
+  }
+
+  .date-range {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .date-sep {
+    transform: rotate(90deg);
+    align-self: center;
+    padding: 0;
+  }
+}

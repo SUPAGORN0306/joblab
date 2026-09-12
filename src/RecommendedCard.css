@@ -10,47 +10,72 @@
   padding: 0 4px;
 }
  
-.recommend-list-header h3 {
-  font-size: 1.25rem;
+.recommend-list-header h4 {
+  font-size: 1rem;
   font-weight: 600;
   color: #ffffff;
   margin: 0;
 }
  
 .recommend-list-header span {
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   color: #8c9bae;
 }
  
-/* --- จัดเลย์เอาต์การ์ดแบบ Grid 3 คอลัมน์ --- */
 .Recommended-cards-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  gap: 12px;
 }
 
 /* การ์ดในหน้า Home ถูกห่อด้วย <Link> เพื่อกดแล้วไปหน้ารายละเอียดงาน — ล้าง style ลิงก์ default ทิ้ง */
-.Recommended-card-link {
+/* .Recommended-card-link {
   text-decoration: none;
   color: inherit;
   display: block;
   cursor: pointer;
+} */
+
+.Recommended-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;               /* เปลี่ยนเป็น flex */
+  flex-direction: column;      /* จัดเรียงแนวตั้ง */
+  cursor: pointer;
+  height: 100%;                /* บังคับให้สูงเต็มแถว */
 }
- 
+/*  
 .Recommended-card {
   background: rgba(220, 220, 220, 0.15);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 16px;
-  padding: 20px;
-  display: flex;
+  padding: 12px 16px;
+  display: flex; 
   flex-direction: column;
   justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
   transition: all 0.2s ease;
   box-sizing: border-box;
+} */
+
+.Recommended-card {
+  background: rgba(220, 220, 220, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 12px 16px;
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  flex: 1;                     /* ให้การ์ดยืดขยายความสูงตามลิงก์จนเต็มแถว */
 }
+
  
 .Recommended-card:hover {
   background: rgba(220, 220, 220, 0.22);
@@ -72,35 +97,28 @@
 }
  
 .Recommended-logo {
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: #ffffff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   flex-shrink: 0;
 }
  
-.green-logo { background: linear-gradient(135deg, #2ecc71, #27ae60); }
-.indigo-logo { background: linear-gradient(135deg, #3f51b5, #303f9f); }
-.orange-logo { background: linear-gradient(135deg, #e67e22, #d35400); }
-.purple-logo { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
-.bright-green-logo { background: linear-gradient(135deg, #1abc9c, #16a085); }
-.coral-logo { background: linear-gradient(135deg, #e74c3c, #c0392b); }
- 
 .Recommended-company-info h4 {
   margin: 0 0 2px 0;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   color: #ffffff;
   font-weight: 600;
 }
  
 .Recommended-company-info span {
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   color: #94a3b8;
 }
  
@@ -124,9 +142,9 @@
 .Recommended-tags span {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 4px 10px;
+  padding: 3px 8px;
   border-radius: 20px;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: #dbe2ea;
   font-weight: 500;
 }
@@ -141,7 +159,7 @@
 }
  
 .Recommended-salary {
-  font-size: 1.15rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: #fbbf24;
 }
@@ -153,7 +171,7 @@
 }
 
 .Recommended-match-badge {
-  padding: 6px 12px;
+  padding: 4px 10px;
   border-radius: 12px;
   font-size: 0.8rem;
   font-weight: 700;
@@ -187,3 +205,21 @@
 .Recommended-favorite-btn.is-favorited {
   color: #ef4444;
 }
+
+/* responsive: ใช้ร่วมกันทั้งหน้า Home และ Favorite เพราะทั้งคู่ใช้การ์ดชุดเดียวกัน */
+@media (max-width: 1080px) {
+  .Recommended-cards-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+
+.logo-ai-product-manager { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+.logo-ai-researcher { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+.logo-computer-vision { background: linear-gradient(135deg, #ec4899, #be185d); }
+.logo-data-analyst { background: linear-gradient(135deg, #10b981, #047857); }
+.logo-data-scientist { background: linear-gradient(135deg, #f59e0b, #b45309); }
+.logo-ml-engineer { background: linear-gradient(135deg, #06b6d4, #0e7490); }
+.logo-nlp-engineer { background: linear-gradient(135deg, #6366f1, #4338ca); }
+.logo-quant-researcher { background: linear-gradient(135deg, #ef4444, #b91c1c); }
